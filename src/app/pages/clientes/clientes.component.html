@@ -1,0 +1,16 @@
+<table>
+    <thead>
+        <td>Id</td>
+        <td>Nombre</td>
+        <td>Salario</td>
+        <td>Fecha Nacimiento</td>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of lst">
+            <td>{{ item.id }}</td>
+            <td>{{ item.nom }}</td>
+            <td>{{ item.sal | currency }}</td>
+            <td>{{ item.fenac | date: "yyy/MM/dd" }}</td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,17 @@
+table {
+    border: solid;
+    thead{
+        td {
+            border: solid;
+        }
+    }
+
+    tbody {
+        tr {
+            border: solid;
+            td {
+                border: solid;
+            }
+        }
+    }
+}
