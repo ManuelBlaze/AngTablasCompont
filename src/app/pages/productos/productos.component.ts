@@ -19,11 +19,11 @@ export class ProductosComponent implements OnInit {
   }
 
   private llenarProductos() {
-    for (let i = 0; i < 10; i++) {
+    for (let i = 1; i <= 7; i++) {
       var producto = new cProductos();
-      producto.cod = `100${i}`;
+      producto.cod = `${i * 1000}100`;
       producto.descr = `Producto ${i}`
-      producto.val = 50 + i;
+      producto.val = 100000 + (i * 2000);
       this.prod.push(producto)
     }
   }

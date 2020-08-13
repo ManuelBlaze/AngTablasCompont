@@ -1,1 +1,15 @@
-<p>proveedor works!</p>
+<h1 class="text-center">Proveedores</h1>
+<table class="table table-striped table-dark container">
+    <thead>
+        <td>Id</td>
+        <td>Nombre</td>
+        <td>Cupo</td>
+    </thead>
+    <tbody>
+        <tr *ngFor="let prove of proveedores">
+            <td>{{ prove.idProv }}</td>
+            <td>{{ prove.nom }}</td>
+            <td>{{ prove.cupo }}</td>
+        </tr>
+    </tbody>
+</table>
