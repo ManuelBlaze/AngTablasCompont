@@ -10,6 +10,7 @@ import { ProductosComponent } from './pages/productos/productos.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ToastComponent } from './components/toast/toast.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ToastComponent } from './components/toast/toast.component';
     ProductosComponent,
     NavbarComponent,
     FooterComponent,
-    ToastComponent
+    ToastComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
