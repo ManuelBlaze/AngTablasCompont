@@ -1,0 +1,44 @@
+<app-modal caption="Cliente" [showButtons]="false">
+    <form id="formCliente" [formGroup]="formCliente" autocomplete="off">
+        <div class="form-body">
+            <div class="form-group">
+                <label class="control-label">Identificación</label>
+                <input formControlName="id" class="form-control rounded" type="text"
+                    [ngClass]="{'invalid-field': isSubmitted && this.formCliente.controls.id.invalid}">
+                <div *ngIf="isSubmitted && this.formCliente.controls.id.errors">
+                    <div *ngIf="this.formCliente.controls.id.errors.required" class="invalid-text">
+                        El campo es obligatorio
+                    </div>
+                    <div *ngIf="this.formCliente.controls.id.errors.maxlength" class="invalid-text">
+                        El campo no debe contener más de 10 caracteres
+                    </div>
+                </div>
+
+                <label class="control-label">Nombre</label>
+                <input formControlName="nom" class="form-control rounded" type="text"
+                    [ngClass]="{'invalid-field': isSubmitted && this.formCliente.controls.nom.invalid}">
+                <div *ngIf="isSubmitted && this.formCliente.controls.nom.errors">
+                    <div *ngIf="this.formCliente.controls.nom.errors.required" class="invalid-text">
+                        El campo es obligatorio
+                    </div>
+                    <div *ngIf="this.formCliente.controls.nom.errors.maxlength" class="invalid-text">
+                        El campo no debe contener más de 40 caracteres
+                    </div>
+                </div>
+
+                <label class="control-label">Salario</label>
+                <input formControlName="sal" class="form-control rounded" type="text"
+                    [ngClass]="{'invalid-field': isSubmitted && this.formCliente.controls.sal.invalid}">
+                <div *ngIf="isSubmitted && this.formCliente.controls.sal.errors">
+                    <div *ngIf="this.formCliente.controls.sal.errors.required" class="invalid-text">
+                        El campo es obligatorio
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="form-footer d-flex justify-content-center">
+        <button type="button" class="btn btn-danger mr-4" (click)="this.bsModalRef.hide()">Cancelar</button>
+        <button type="button" class="btn btn-primary ml-4" (click)="submit()">Aceptar</button>
+    </div>
+</app-modal>
