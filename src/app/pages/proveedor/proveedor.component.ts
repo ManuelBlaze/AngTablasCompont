@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { cProveedor } from "src/app/classes/cProveedor/cProveedor";
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { ProveedorModalComponent } from 'src/app/modals/proveedor-modal/proveedor-modal.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-proveedor',
@@ -8,10 +11,12 @@ import { cProveedor } from "src/app/classes/cProveedor/cProveedor";
 })
 export class ProveedorComponent implements OnInit {
 
-  public proveedores: cProveedor[];
+  public lst: cProveedor[];
 
-  constructor() { 
-    this.proveedores = [];
+  public subscriptions: Subscription[];
+  constructor(private modalService: BsModalService) {
+    this.lst = [];
+    this.subscriptions = [];
   }
 
   ngOnInit(): void {
@@ -20,12 +25,63 @@ export class ProveedorComponent implements OnInit {
 
   private iniciales () {
     for (let i = 1; i <= 10; i++) {
-        let prov = new cProveedor();
-        prov.idProv = `105${i*2}`
-        prov.nom = `Proveedor ${i}`;
-        prov.cupo = 32 + i;
-        this.proveedores.push(prov);
+        let proveedor = new cProveedor();
+        proveedor.idProv = `105${i*2}`
+        proveedor.nom = `Proveedor ${i}`;
+        proveedor.cupo = 32 + i;
+        this.lst.push(proveedor);
     }
+  }
+
+  public openModal() {
+    this.modalService.show(ProveedorModalComponent, { keyboard: false, ignoreBackdropClick: true });
+    this.subscriptions.push(
+      this.modalService.onHidden.subscribe((reason: any) => {
+        if (reason[0] === "proveedor") {
+          var result: any = reason[1];
+          this.lst.push(result as cProveedor);
+          this.unsubscribe();
+        }
+      })
+    );
+  }
+
+  public openEditModal(proveedor: cProveedor) {
+    console.log(proveedor)
+    const initialState = {
+      proveedor: proveedor
+    }
+    this.modalService.show(ProveedorModalComponent, { initialState, keyboard: false, ignoreBackdropClick: true });
+    this.subscriptions.push(
+      this.modalService.onHidden.subscribe((reason: any) => {
+        if (reason[0] === "proveedor") {
+          this.lst.forEach((x, i) => {
+            if (x.idProv === proveedor.idProv) {
+              this.lst.splice(i, 1);
+            }
+          });
+
+          var result: any = reason[1];
+          this.lst.push(result as cProveedor);
+          this.unsubscribe();
+        }
+      })
+    );
+  }
+
+  public delete(proveedor: cProveedor) {
+    this.lst.forEach((x, i) => {
+      if (x.idProv === proveedor.idProv) {
+        this.lst.splice(i, 1);
+      }
+    });
+  }
+
+  public unsubscribe() {
+    this.subscriptions.forEach((subscription: Subscription) => {
+      subscription.unsubscribe();
+    });
+    this.subscriptions = [];
   }
 
 }

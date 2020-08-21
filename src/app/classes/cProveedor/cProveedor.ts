@@ -1,6 +1,6 @@
 export class cProveedor {
-    public idProv: String
-    public nom: String;
+    public idProv: string
+    public nom: string;
     public cupo: number;
 
     constructor() {

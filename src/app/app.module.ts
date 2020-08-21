@@ -14,6 +14,7 @@ import { ToastComponent } from './components/toast/toast.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms'; 
 import { ClienteModalComponent } from './modals/cliente-modal/cliente-modal.component';
+import { ProveedorModalComponent } from './modals/proveedor-modal/proveedor-modal.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ClienteModalComponent } from './modals/cliente-modal/cliente-modal.comp
     FooterComponent,
     ToastComponent,
     ModalComponent,
-    ClienteModalComponent
+    ClienteModalComponent,
+    ProveedorModalComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,7 @@ import { ClienteModalComponent } from './modals/cliente-modal/cliente-modal.comp
     FormsModule
   ],
   entryComponents: [
-    ToastComponent, ClienteModalComponent
+    ToastComponent, ClienteModalComponent, ProveedorModalComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

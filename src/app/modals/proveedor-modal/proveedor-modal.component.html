@@ -1,0 +1,44 @@
+<app-modal caption="Proveedor" [showButtons]="false">
+    <form id="formProveedor" [formGroup]="formProveedor" autocomplete="off">
+        <div class="form-body">
+            <div class="form-group">
+                <label class="control-label">Identificación</label>
+                <input formControlName="idProv" class="form-control rounded" type="text"
+                    [ngClass]="{'invalid-field': isSubmitted && this.formProveedor.controls.idProv.invalid}">
+                <div *ngIf="isSubmitted && this.formProveedor.controls.idProv.errors">
+                    <div *ngIf="this.formProveedor.controls.idProv.errors.required" class="invalid-text">
+                        El campo es obligatorio
+                    </div>
+                    <div *ngIf="this.formProveedor.controls.Prov.errors.maxlength" class="invalid-text">
+                        El campo no debe contener más de 10 caracteres
+                    </div>
+                </div>
+
+                <label class="control-label">Nombre</label>
+                <input formControlName="nom" class="form-control rounded" type="text"
+                    [ngClass]="{'invalid-field': isSubmitted && this.formProveedor.controls.nom.invalid}">
+                <div *ngIf="isSubmitted && this.formProveedor.controls.nom.errors">
+                    <div *ngIf="this.formProveedor.controls.nom.errors.required" class="invalid-text">
+                        El campo es obligatorio
+                    </div>
+                    <div *ngIf="this.formProveedor.controls.nom.errors.maxlength" class="invalid-text">
+                        El campo no debe contener más de 40 caracteres
+                    </div>
+                </div>
+
+                <label class="control-label">Cupo</label>
+                <input formControlName="cupo" class="form-control rounded" type="text"
+                    [ngClass]="{'invalid-field': isSubmitted && this.formProveedor.controls.cupo.invalid}">
+                <div *ngIf="isSubmitted && this.formProveedor.controls.cupo.errors">
+                    <div *ngIf="this.formProveedor.controls.cupo.errors.required" class="invalid-text">
+                        El campo es obligatorio
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="form-footer d-flex justify-content-center">
+        <button type="button" class="btn btn-danger mr-4" (click)="this.bsModalRef.hide()">Cancelar</button>
+        <button type="button" class="btn btn-primary ml-4" (click)="submit()">Aceptar</button>
+    </div>
+</app-modal>
