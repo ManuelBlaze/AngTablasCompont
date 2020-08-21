@@ -16,6 +16,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ClienteModalComponent } from './modals/cliente-modal/cliente-modal.component';
 import { ProveedorModalComponent } from './modals/proveedor-modal/proveedor-modal.component';
 import { ProductoModalComponent } from './modals/producto-modal/producto-modal.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ProductoModalComponent } from './modals/producto-modal/producto-modal.c
     ModalComponent,
     ClienteModalComponent,
     ProveedorModalComponent,
-    ProductoModalComponent
+    ProductoModalComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
