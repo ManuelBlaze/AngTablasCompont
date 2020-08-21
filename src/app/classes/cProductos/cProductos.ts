@@ -1,6 +1,6 @@
 export class cProductos {
-    public cod: String;
-    public descr: String;
+    public cod: string;
+    public descr: string;
     public val: number;
 
     constructor(){

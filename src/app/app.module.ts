@@ -15,6 +15,7 @@ import { ModalComponent } from './components/modal/modal.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms'; 
 import { ClienteModalComponent } from './modals/cliente-modal/cliente-modal.component';
 import { ProveedorModalComponent } from './modals/proveedor-modal/proveedor-modal.component';
+import { ProductoModalComponent } from './modals/producto-modal/producto-modal.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ProveedorModalComponent } from './modals/proveedor-modal/proveedor-moda
     ToastComponent,
     ModalComponent,
     ClienteModalComponent,
-    ProveedorModalComponent
+    ProveedorModalComponent,
+    ProductoModalComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,7 @@ import { ProveedorModalComponent } from './modals/proveedor-modal/proveedor-moda
     FormsModule
   ],
   entryComponents: [
-    ToastComponent, ClienteModalComponent, ProveedorModalComponent
+    ToastComponent, ClienteModalComponent, ProveedorModalComponent, ProductoModalComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
